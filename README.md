@@ -1,2 +1,2 @@
-# css-study
+# css-framework
 Material UI, Tailwind css, Emotion css
