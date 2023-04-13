@@ -1,57 +1,36 @@
 import "./App.css";
-import { Button, Typography } from "@mui/material";
-import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
-import AppleIcon from "@mui/icons-material/Apple";
-import styled from "@emotion/styled";
+import { Box, Stack, ThemeProvider, createTheme } from "@mui/material";
+import Header from "./components/Header";
+import LeftBody from "./components/LeftBody";
+import CenterBody from "./components/CenterBody";
+import RightBody from "./components/RightBody";
+import Footer from "./components/Footer";
+import Create from "./components/Create";
+import React, { useState } from "react";
 
 function App() {
+  const [mode, setMode] = useState("light");
+
+  const darkTheme = createTheme({
+    palette: {
+      mode: mode,
+    },
+  });
+
   return (
-    <div>
-      {/* <Button>hello World!</Button> */}
-      {/* 기본 */}
-      <Button startIcon={<AccessTimeFilledIcon />} variant="text">
-        hello World!
-      </Button>
-      <Button variant="contained" size="large" fullWidth="true">
-        hello World!
-      </Button>
-      <Button endIcon={<AppleIcon />} variant="outlined">
-        Apple
-      </Button>
-      {/* sx 사용 - 커스텀하기 */}
-      <Button
-        sx={{
-          backgroundColor: "green",
-          color: "white",
-          margin: 10,
-          "&:hover": {
-            backgroundColor: "yellow",
-          },
-          "&:disabled": {
-            backgroundColor: "white",
-            color: "black",
-            border: "1px solid black",
-          },
-        }}
-      >
-        Custom Style
-      </Button>
-      <CustomButton>커스텀버튼</CustomButton>
-      {/* 타이포 그래피 */}
-      <Typography variant="h1" gutterBottom>
-        h1.heading
-      </Typography>
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <Box bgcolor={"background.default"} color={"text.primary"}>
+        <Header />
+        <Stack direction={"row"} spacing={2} justifyContent={"space-between"}>
+          <LeftBody />
+          <CenterBody />
+          <RightBody mode={mode} setMode={setMode} />
+        </Stack>
+        <Create />
+        <Footer />
+      </Box>
+    </ThemeProvider>
   );
 }
-
-const CustomButton = styled(Button)({
-  backgroundColor: "blue",
-  color: "white",
-  border: "2px dashed black",
-  "&:hover": {
-    backgroundColor: "skyblue",
-  },
-});
 
 export default App;
