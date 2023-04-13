@@ -14,4 +14,8 @@ Material UI, Tailwind css, Emotion css
 
 ### 02. Tailwind css
 
+- Tailwind css IntelliSence Plugin
+- React-icon
+- React-Scroll
+
 ### 03. Emotion css
