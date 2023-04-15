@@ -19,3 +19,8 @@ Material UI, Tailwind css, Emotion css
 - React-Scroll
 
 ### 03. Emotion css
+
+- @emotion/react & @emotion/styled
+- Global Style
+- Theme (Dark / Light)
+- google API => 책 Data
