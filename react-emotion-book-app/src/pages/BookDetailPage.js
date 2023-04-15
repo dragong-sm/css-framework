@@ -12,7 +12,7 @@ import BookDetail from "../components/BookDetail";
 
 const BookDetailPage = () => {
   const { bookId } = useParams();
-  const [book, setBook] = useState(null);
+  const [book, setBook] = useState({});
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
